@@ -1,10 +1,32 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
+        CustomerStore customerStore = new CustomerStore();
+
+
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+
+        vehicles.add(new Sedan("SedanCar", generateFakeModel(), 40, generateLicensePlate()));
+        vehicles.add(new Sedan("SedanCar", generateFakeModel(), 41, generateLicensePlate()));
+        vehicles.add(new SportBike("SportBike", generateFakeModel(), 29, generateLicensePlate()));
+        vehicles.add(new SportBike("SportBike", generateFakeModel(), 49, generateLicensePlate()));
+
+        
+    }
+    
+    public static String generateLicensePlate() {
+        Random rand = new Random();
+        return "KAMP" + (rand.nextInt(9000) + 1000);
+    }
+    public static String generateFakeModel() {
+        String[] fakemodel = {"Zonda", "shown", "", "et", "Gaal"};
+        Random rand = new Random();
+        return fakemodel[rand.nextInt(fakemodel.length)];
     }
 }
 
