@@ -7,7 +7,9 @@ public class Main {
     public static void main(String[] args) {
 
         CustomerStore customerStore = new CustomerStore();
-
+         for (int i = 0; i < 10; i++) {
+            customerStore.adCustomer();
+        }
 
         ArrayList<Vehicle> vehicles = new ArrayList<>();
 
@@ -16,6 +18,9 @@ public class Main {
         vehicles.add(new SportBike("SportBike", generateFakeModel(), 29, generateLicensePlate()));
         vehicles.add(new SportBike("SportBike", generateFakeModel(), 49, generateLicensePlate()));
 
+
+        vehicles.get(0).rentVehicle(customerStore.customers.get(0));
+        vehicles.get(1).rentVehicle(customerStore.customers.get(1));
         
     }
     
@@ -279,7 +284,7 @@ class CustomerStore {
     public CustomerStore() {
         customers = new ArrayList<>();
     }
-    public void addNewCustomer() {
+    public void adCustomer() {
         
         String[] examplenames = {"Xenon", "Blae", "prin", "Nev", "Nab"};
         Random rand = new Random();
