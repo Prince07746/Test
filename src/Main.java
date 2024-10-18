@@ -266,21 +266,30 @@ class Customer{
         this.name = name;
         this.account = account;
     }
+    public String getName() {
+        return name;
+    }
 
 }
 
 
-class CustomerStore{
-    ArrayList<Customer>  customers;
-    public CustomerStore(){
+
+class CustomerStore {
+    ArrayList<Customer> customers;
+    public CustomerStore() {
         customers = new ArrayList<>();
     }
+    public void addNewCustomer() {
+        
+        String[] examplenames = {"Xenon", "Blae", "prin", "Nev", "Nab"};
+        Random rand = new Random();
+        String randomName = examplenames[rand.nextInt(examplenames.length)];
+        double randomAccount = rand.nextInt(1000) + 500;
 
-    public void addNewCustomer(){
-
+        customers.add(new Customer(randomName, randomAccount));
+        System.out.println("Add custmer: " + randomName);
     }
 }
-
 
 //
 //ou are tasked with designing a vehicle rental system. The system will manage different types of vehicles (cars and motorcycles) and customers who can rent these vehicles. You will need to implement:
@@ -325,4 +334,3 @@ class CustomerStore{
 //After renting and returning some vehicles, print out the details of the vehicles and which customers have rented them.
 //Upload your codes to github
 //
-//deadline :6.13pm
